@@ -23,9 +23,11 @@ Este proyecto contiene **3 pruebas automatizadas con Playwright:**
 
 ---
 ## Ejecución de los tests
-![captura de la terminal](image-1.png)
 
 ## Proyecto en Visual Studio Code
+![captura de la terminal](image-1.png)
+
+## Reporte HTML
 ![captura de los test ](image-2.png)
 
 ## Resultado final
