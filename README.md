@@ -1,34 +1,9 @@
-# Proyecto QA - Demoblaze ejercicio
+Reflexión: ¿Por qué Playwright utiliza auto-wait en lugar de sleep()?
+Una de las características más útiles de Playwright es el auto-wait, ya que permite que las pruebas esperen automáticamente hasta que un elemento esté listo antes de realizar una acción. En lugar de ejecutar un clic o llenar un campo de inmediato, Playwright verifica que el elemento sea visible, estable, esté habilitado y pueda recibir la interacción del usuario. De esta forma, la espera se realiza únicamente durante el tiempo que realmente sea necesario y siempre respetando un tiempo máximo configurado para evitar bloqueos.
+A diferencia de esto, utilizar sleep() o waitForTimeout() implica detener la ejecución durante un tiempo fijo, sin importar si la página ya terminó de cargar o si todavía no está preparada. Esto puede hacer que las pruebas sean más lentas de lo necesario o incluso provocar errores cuando la aplicación tarda más tiempo en responder.
+El uso del auto-wait también mejora el rendimiento de las pruebas, ya que la ejecución continúa tan pronto como se cumplen las condiciones requeridas. Esto evita perder tiempo con esperas innecesarias y reduce la duración total de la suite de pruebas. Además, disminuye la aparición de pruebas inestables o flaky tests, porque las acciones se realizan únicamente cuando los elementos realmente están disponibles.
+Otro beneficio importante es que el código resulta más claro y fácil de mantener. En lugar de agregar tiempos de espera arbitrarios que después deben modificarse cuando cambia el rendimiento de la aplicación, el auto-wait se adapta automáticamente a las condiciones de ejecución, haciendo que las pruebas sean más confiables y fáciles de entender.
 
-**Nombre:** Cesar Ulises González Cardona
+Conclusión
+Considero que el auto-wait es una solución mucho más eficiente que el uso de sleep(), ya que no depende de tiempos estimados, sino del estado real de la aplicación. Gracias a esta característica, las pruebas son más rápidas, estables y presentan menos fallos ocasionados por problemas de sincronización. Por esta razón, el uso de sleep() debería reservarse únicamente para situaciones muy específicas, mientras que en la mayoría de los casos es recomendable aprovechar el mecanismo de espera automática que ofrece Playwright.
 
-**Carné:** 1790-22-6044
-
-**Node.js Version:** v24.17.0
-
-**Playwright Version:** 1.61.1
-
-**git version:** 2.51.0.windows.1
-
-**npm --version:** 11.6.2
----
-
-# Tests
-
-Este proyecto contiene **3 pruebas automatizadas con Playwright:**
-
-1. Verificar que la página principal carga correctamente.
-2. Verificar que el menú de categorías sea visible.
-3. Verificar que la barra de navegación contenga el enlace **Home**.
-
----
-## Ejecución de los tests
-
-## Proyecto en Visual Studio Code
-![captura de la terminal](image-1.png)
-
-## Reporte HTML
-![captura de los test ](image-2.png)
-
-## Resultado final
-![captura de los test de la interfas de usuario](image-3.png)
